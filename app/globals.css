@@ -2,19 +2,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-* {
-  background: linear-gradient(135deg, #1b489a, #18499e, #1a48d3);
-  background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
-  min-height: 100vh;
-  margin: 0;
-  color: white;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+*{
+  background-color: #000e25;
+color: white;
 }
 
 .body {
