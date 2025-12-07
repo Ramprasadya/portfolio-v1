@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Navbar from "./Navbar/Navbar";
 import Hero from "./Hero";
 import About from "./About";
+import Contact from "./Contact";
 
 const Homepage = () => {
   const { darkMode, setDarkMode} = useContext(ProfileContext);
@@ -26,8 +27,6 @@ const Homepage = () => {
 
   return (
     <div className="w-full relative justify-center items-center flex flex-col p-2 md:p-4 ">
-      <Navbar  />
-
       <motion.div
         variants={parent}
         initial="hidden"
@@ -37,6 +36,7 @@ const Homepage = () => {
         <section className={` w-full sm:w-5xl md:w-7xl  `} >
           <Hero />
           <About/>
+          <Contact/>
         </section>
       </motion.div>
     </div>
