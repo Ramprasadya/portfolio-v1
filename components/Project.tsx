@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { ProfileContext } from './context/context'
 import Image from 'next/image'
 import Ecom from './logo/Ecomeerce.png'
+import { SquareArrowOutUpRightIcon } from '@/lib/SquareArrowOutUpRightIcon'
+import { GithubIcon } from '@/lib/GithubIcon'
 
 const Project = () => {
   const {projectRef} = useContext(ProfileContext)
@@ -23,8 +25,8 @@ const Project = () => {
     >
      <div className="w-full  md:w-3xl lg:w-5xl xl:w-7xl p-5" >
       <div className='flex flex-col gap-y-5 my-5 text-center ' >
-        <h1 className=' text-4xl  font-bold '>My Projects</h1>
-        <p className=' text-[18px]'>Here are some of the projects I’ve built using modern tools and technologies. Each project reflects my passion for clean UI, strong backend architecture, and creating real-world solutions through code.
+        <h1 className='text-xl sm1:text-4xl  font-bold '>My Projects</h1>
+        <p className='text-[16px] sm1:text-[18px]'>Here are some of the projects I’ve built using modern tools and technologies. Each project reflects my passion for clean UI, strong backend architecture, and creating real-world solutions through code.
         </p>
       </div>
      
@@ -36,10 +38,10 @@ const Project = () => {
                <div className='  lg:w-1/2'>
                 <Image src={item.image.src} className=' g-[200px] sm:h-[300px] md:h-[250px] lg:h-[300px] w-full md:w-[650px] lg:w-full bg-cover rounded-lg' height={500} width={500} alt="not found" />
                </div>
-               <div className='flex flex-col gap-y-5  lg:w-1/2 p-5'>
-                  <h1 className=' text-2xl lg:text-4xl font-bold'>{item.title}</h1>
+               <div className='flex flex-col gap-y-2 sm1:gap-y-5  lg:w-1/2 p-5'>
+                  <h1 className='text-xl sm1:text-2xl lg:text-4xl font-bold'>{item.title}</h1>
                   <p className=' text-[16px] lg:text-[18px] font-semibold'>{item.description}</p>
-                  <div className='flex gap-x-2 lg:gap-x-5'>
+                  <div className='flex gap-3 lg:gap-x-5 flex-wrap'>
 
                   {
                     item.tech.map((t,index)=>{
@@ -52,8 +54,8 @@ const Project = () => {
                   }
                   </div>
                 <div className='flex gap-x-5 mt-2 lg:mt-10'>
-                <a href={item.link}>Live</a>
-                <a href={item.github}>Github</a>
+                <a className='flex items-center gap-x-2' href={item.link}> <SquareArrowOutUpRightIcon/> Live</a>
+                <a className='flex items-center gap-x-2' href={item.github}><GithubIcon/> Github</a>
                 </div>
 
                </div>

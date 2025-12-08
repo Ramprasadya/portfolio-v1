@@ -27,7 +27,7 @@ const Homepage = () => {
 
 
   return (
-    <div className="w-full relative justify-center items-center flex flex-col ">
+    // <div className="w-full relative justify-center items-center flex flex-col ">
       <motion.div
         variants={parent}
         initial="hidden"
@@ -35,14 +35,13 @@ const Homepage = () => {
         viewport={{ once: false }}
       >
         <Navbar/>
-        {/* <section className={` w-full w-xs:2-xl sm:w-3xl lg:w-5xl xl:w-7xl  `} > */}
           <Hero />
           <About/>
           <Project/>
           <Contact/>
-        {/* </section> */}
+       
       </motion.div>
-    </div>
+    // </div>
   );
 };
 

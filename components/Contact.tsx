@@ -6,7 +6,6 @@ const Contact = () => {
    const [formData, setFormData] = useState<any>({
     name: "",
     email: "",
-    phone: "",
     message: "",
   });
 
@@ -27,14 +26,16 @@ const Contact = () => {
     setFormData({
       name: "",
       email: "",
-      phone: "",
       message: "",
     });
   };
 
   return (
-    <div  className="md:h-screen py-10 md:py-0 w-full justify-center items-center flex flex-col bg-[#000e25] text-white overflow-hidden" ref={contactRef} >
-       <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto  border p-5 sm:p-20 rounded-[10px] w-full">
+    <div  className="md:h-screen py-10 md:py-0 w-screen justify-center items-center flex flex-col bg-[#000e25] text-white overflow-hidden" ref={contactRef} >
+       <form onSubmit={handleSubmit} className="flex flex-col gap-4  mx-auto  border p-5 sm:p-20 rounded-[10px]  px-5 py-10 lg:py-[96px] max-w-[592px] w-full">
+      <div className='w-full justify-center text-center ' >
+        <h1 className='text-4xl josefin font-bold mb-10'>Get In Touch</h1>
+      </div>
 
       <input
         type="text"
@@ -55,17 +56,7 @@ const Contact = () => {
         className="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
         required
       />
-
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Your Phone"
-        value={formData.phone}
-        onChange={handleChange}
-        className="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
-        required
-      />
-
+      
       <textarea
         name="message"
         placeholder="Your Message"

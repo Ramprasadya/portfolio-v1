@@ -3,6 +3,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme {
+  --breakpoint-sm1:578px;
+  --breakpoint-xs: 468px;
+  --breakpoint-xsm: 360px;
+}
+
 /* *{
   background-color: #000e25;
 color: white;
@@ -29,3 +35,4 @@ color: white;
 html {
   scrollbar-width: none;
 }
+
