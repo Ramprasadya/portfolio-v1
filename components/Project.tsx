@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ProfileContext } from './context/context'
 
 const Project = () => {
+  const {projectRef} = useContext(ProfileContext)
   return (
-    <div>Project</div>
+      <div
+      ref={projectRef}
+      className="h-screen w-full md:w-[100vw] justify-center items-center flex flex-col bg-[#000e25] text-white overflow-hidden"
+    >
+      Projects
+    </div>
   )
 }
 

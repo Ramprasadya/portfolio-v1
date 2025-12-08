@@ -8,6 +8,7 @@ import Navbar from "./Navbar/Navbar";
 import Hero from "./Hero";
 import About from "./About";
 import Contact from "./Contact";
+import Project from "./Project";
 
 const Homepage = () => {
   const { darkMode, setDarkMode} = useContext(ProfileContext);
@@ -26,18 +27,20 @@ const Homepage = () => {
 
 
   return (
-    <div className="w-full relative justify-center items-center flex flex-col p-2 md:p-4 ">
+    <div className="w-full relative justify-center items-center flex flex-col ">
       <motion.div
         variants={parent}
         initial="hidden"
         whileInView="show"
         viewport={{ once: false }}
       >
-        <section className={` w-full sm:w-5xl md:w-7xl  `} >
+        <Navbar/>
+        {/* <section className={` w-full w-xs:2-xl sm:w-3xl lg:w-5xl xl:w-7xl  `} > */}
           <Hero />
           <About/>
+          <Project/>
           <Contact/>
-        </section>
+        {/* </section> */}
       </motion.div>
     </div>
   );

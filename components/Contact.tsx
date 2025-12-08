@@ -33,7 +33,7 @@ const Contact = () => {
   };
 
   return (
-    <div className='h-screen w-full justify-center items-center flex flex-col' ref={contactRef} >
+    <div  className="h-screen w-full justify-center items-center flex flex-col bg-[#000e25] text-white overflow-hidden" ref={contactRef} >
        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto  border p-20 rounded-[10px] w-full">
 
       <input
