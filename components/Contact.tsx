@@ -41,7 +41,7 @@ const Contact = () => {
     >
        <div className='flex flex-col gap-y-5 my-5 text-center ' >
         <h1 className='text-xl sm1:text-4xl  font-bold ' >Get In Touch</h1>
-         <TextAnimate animation="blurInUp" by="character"  startOnView={true} once={false} className='text-[16px] sm1:text-[18px]' > Feel free to reach out if you'd like to collaborate or have a project in mind. I'm always open to new opportunities and interesting conversations.
+         <TextAnimate animation="blurInUp" by="character"  once className='text-[16px] sm1:text-[18px]' > Feel free to reach out if you'd like to collaborate or have a project in mind. I'm always open to new opportunities and interesting conversations.
 </TextAnimate>
          
       </div>

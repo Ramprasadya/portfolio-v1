@@ -27,7 +27,7 @@ const Project = () => {
      <div className="w-full  md:w-3xl lg:w-5xl xl:w-7xl p-5" >
       <div className='flex flex-col gap-y-5 my-5 text-center ' >
         <h1 className='text-xl sm1:text-4xl  font-bold '>My Projects</h1>
-        <TextAnimate animation="blurInUp" by="character"  startOnView={true} once={false} className='text-[16px] sm1:text-[18px]'>Here are some of the projects I’ve built using modern tools and technologies. Each project reflects my passion for clean UI, strong backend architecture, and creating real-world solutions through code.
+        <TextAnimate animation="blurInUp" by="character"  once className='text-[16px] sm1:text-[18px]'>Here are some of the projects I’ve built using modern tools and technologies. Each project reflects my passion for clean UI, strong backend architecture, and creating real-world solutions through code.
         </TextAnimate>
       </div>
      

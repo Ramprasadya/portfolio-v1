@@ -25,10 +25,10 @@ const Hero = () => {
         <SparklesText sparklesCount={10} className=" text-xl sm1:text-2xl md:text-3xl josefin">Full Stack Developer</SparklesText>
           <div>
 
-           <TextAnimate animation="blurInUp" by="character"  startOnView={true} once={false} className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] mt-1">
+           <TextAnimate animation="blurInUp" by="character"   once className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] mt-1">
                 Full-stack developer creating fast, scalable web applications.
             </TextAnimate>
-           <TextAnimate animation="blurInUp" by="character"  startOnView={true} once={false} className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] ">
+           <TextAnimate animation="blurInUp" by="character"  once className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] ">
                 Passionate about clean code, modern frameworks, and seamless user
                 experiences.
             </TextAnimate>
