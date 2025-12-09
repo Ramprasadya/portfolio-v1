@@ -28,19 +28,15 @@ const Homepage = () => {
 
   return (
     // <div className="w-full relative justify-center items-center flex flex-col ">
-      <motion.div
-        variants={parent}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false }}
-      >
-        <Navbar/>
-          <Hero />
-          <About/>
-          <Project/>
-          <Contact/>
+    <div>
+
+      <Navbar/>
+        <Hero />
+        <About/>
+        <Project/>
+        <Contact/>
+    </div>
        
-      </motion.div>
     // </div>
   );
 };

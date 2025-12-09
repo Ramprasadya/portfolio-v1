@@ -16,10 +16,10 @@ const Navbar = () => {
         <Image className='cursor-pointer h-[30px] sm:h-[50px] w-[55px] sm:w-[75px]  ' onClick={()=> scrollTo(homeRef)}  src={logo.src} alt='' height={50} width={50} />
         {/* <p  className='text-2xl font-bold cursor-pointer' onClick={()=>scrollTo(homeRef)} >RPY</p> */}
       </div>
-      <div className=' hidden sm1:flex items-center gap-x-4 ' >
-        <p className='cursor-pointer' onClick={()=>scrollTo(aboutRef)} >About</p>
-        <p className='cursor-pointer' onClick={()=> scrollTo(projectRef)}  >Project</p>
-        <p className='cursor-pointer' onClick={()=> scrollTo(contactRef)} >Contact</p>
+      <div className=' hidden sm1:flex items-center gap-x-7 ' >
+        <p className='cursor-pointer text-lg' onClick={()=>scrollTo(aboutRef)} >About</p>
+        <p className='cursor-pointer text-lg' onClick={()=> scrollTo(projectRef)}  >Project</p>
+        <p className='cursor-pointer text-lg' onClick={()=> scrollTo(contactRef)} >Contact</p>
       </div>
       <div className=' flex sm1:hidden' >
         <MenuIcon className='h-8 w-8' onClick={()=>setVisible(true)} />
