@@ -1,8 +1,11 @@
-import React from 'react'
 
 const Footer = () => {
   return (
-    <div>This is footer</div>
+    <div className='h-10 flex justify-around items-center mb-5'>
+        <div>
+            <p className='text-white text-[16px]' >Made with ❤️ by Ramprasad yadav</p>
+        </div>
+    </div>
   )
 }
 
