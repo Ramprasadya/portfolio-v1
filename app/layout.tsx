@@ -48,7 +48,7 @@ keywords: [
         " Full-stack developer creating fast, scalable web applications.",
       images: [
         {
-          url: "../components/logo/home.png",
+          url: "/home.png",
           width: 1200,
           height: 630,
           alt: "Ramprasad Porftfolio",
