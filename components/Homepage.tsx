@@ -16,7 +16,7 @@ const Contact =dynamic(()=>import('./Contact'),{
 const Footer =dynamic(()=>import('./Footer/Footer'),{
   ssr:false
 });
-
+ 
 
 const Homepage = () => {
 
