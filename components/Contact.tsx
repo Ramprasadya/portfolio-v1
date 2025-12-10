@@ -20,13 +20,19 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    console.log("Form Submitted:", formData);
-    // You can send the data to an API route here
-
-    // Clear fields after submit
+     fetch("/api/send-email",{
+      method:'POST',
+      cache:'no-cache',
+      body: JSON.stringify(formData),
+      headers:{
+        'Content-Type':'application/json'
+      }
+     }).then(res => res.json())
+     .then(data => {
+      console.log(data)
+     })
     setFormData({
       name: "",
       email: "",
@@ -86,7 +92,7 @@ const Contact = () => {
 
           <button
             type="submit"
-            className=" backdrop-blur-md bg-white/5 text-white py-3 rounded-lg font-semiboldhover:bg-blue-700 ransition border "
+            className=" backdrop-blur-md bg-white/5 text-white py-3 cursor-pointer rounded-lg font-semiboldhover:bg-blue-700 ransition border "
           >
             Send Message
           </button>
