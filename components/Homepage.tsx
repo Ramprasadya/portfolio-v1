@@ -1,10 +1,20 @@
 "use client";
+import dynamic from "next/dynamic";
 import Navbar from "./Navbar/Navbar";
-import Hero from "./Hero";
-import About from "./About";
-import Contact from "./Contact";
-import Project from "./Project";
 import Footer from "./Footer/Footer";
+const Hero =dynamic(()=>import('./Hero'),{
+  ssr:false
+});
+const About =dynamic(()=>import('./About'),{
+  ssr:false
+});
+const Project =dynamic(()=>import('./Project'),{
+  ssr:false
+});
+const Contact =dynamic(()=>import('./Contact'),{
+  ssr:false
+});
+
 
 const Homepage = () => {
 

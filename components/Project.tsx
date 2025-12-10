@@ -37,7 +37,7 @@ const Project = () => {
            
             <div className='flex flex-col md:flex-row  items-center w-full gap-x-5 border backdrop-blur-md bg-white/5 text-white rounded-2xl p-5 mt-5' key={index}>
                <div className='  lg:w-1/2'>
-                <Image src={item.image.src} className=' g-[200px] sm:h-[300px] md:h-[250px] lg:h-[300px] w-full md:w-[650px] lg:w-full bg-cover rounded-lg' height={500} width={500} alt="not found" />
+                <Image src={item.image.src} loading='lazy' className=' g-[200px] sm:h-[300px] md:h-[250px] lg:h-[300px] w-full md:w-[650px] lg:w-full bg-cover rounded-lg' height={500} width={500} alt="not found" />
                </div>
                <div className='flex flex-col gap-y-2 sm1:gap-y-5  lg:w-1/2 p-5'>
                   <h1 className='text-xl sm1:text-2xl lg:text-4xl font-bold'>{item.title}</h1>
