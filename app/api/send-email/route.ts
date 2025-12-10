@@ -8,7 +8,7 @@ export async function POST(request:Request) {
     const message = {
         from:`Portfolio Contact ${body.email}`,
         to: process.env.EMAIL_TO,
-        subject: "",
+        subject: "Portfolio",
         html:`
         <p>
         Hello ${body.name}
