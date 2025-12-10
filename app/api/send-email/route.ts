@@ -36,15 +36,17 @@ export async function POST(request: Request) {
   // console.log(JSON.stringify(body))
 
   try {
-    await transporter.sendMail(message);
-    if( !body.name || !body.email || !body.message){
-    return NextResponse.json({message:"Please Enter Valid Input"}, {status:404})
-  }else{
+    if (!body.name || !body.email || !body.message) {
       return NextResponse.json(
-        { message: "Email send Successfully" },
-        { status: 200 }
+        { message: "Please Enter Valid Input" },
+        { status: 404 }
       );
-  }
+    }
+    await transporter.sendMail(message);
+    return NextResponse.json(
+      { message: "Email send Successfully" },
+      { status: 200 }
+    );
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }

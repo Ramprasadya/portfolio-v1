@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ProfileContextProvider from "@/components/context/context";
 import { Analytics } from "@vercel/analytics/next"
-import Preview from '../components/logo/home.png'
+import OGImage from './home.png'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,9 +48,9 @@ keywords: [
         " Full-stack developer creating fast, scalable web applications.",
       images: [
         {
-          url: "/home.png",
-          width: 1200,
-          height: 630,
+          url: OGImage.src,
+          width: OGImage.width,
+          height: OGImage.height,
           alt: "Ramprasad Porftfolio",
         },
       ],
