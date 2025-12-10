@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ProfileContextProvider from "@/components/context/context";
 import { Analytics } from "@vercel/analytics/next"
-import OGImage from './home.png'
+import OGImage from './og.png'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
