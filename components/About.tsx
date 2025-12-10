@@ -16,9 +16,9 @@ const About = () => {
 
       <div className="w-full flex flex-col justify-center items-center gap-y-4 text-center">
         <h1 className=" text-xl sm1:text-4xl josefin font-bold">About Me</h1>
-      <TextAnimate animation="blurInUp" by="character" once className=" text-[16px] sm1:text-[18px] ">I specialize in JavaScript-based technologies such as React, Next.js, TypeScript, Tailwind CSS, Node.js, 
+      <p className=" text-[16px] sm1:text-[18px] ">I specialize in JavaScript-based technologies such as React, Next.js, TypeScript, Tailwind CSS, Node.js, 
 Express, MongoDB, and various developer tools. I love combining clean UI with strong backend logic to create 
-applications that are both intuitive and performant.</TextAnimate>
+applications that are both intuitive and performant.</p>
       </div>
       
       <div className="flex gap-5 px-4 flex-wrap mt-5 text-center justify-center ">

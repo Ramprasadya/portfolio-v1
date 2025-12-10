@@ -27,8 +27,8 @@ const Project = () => {
      <div className="w-full  md:w-3xl lg:w-5xl xl:w-7xl p-5" >
       <div className='flex flex-col gap-y-5 my-5 text-center ' >
         <h1 className='text-xl sm1:text-4xl  font-bold '>My Projects</h1>
-        <TextAnimate animation="blurInUp" by="character"  once className='text-[16px] sm1:text-[18px]'>Here are some of the projects I’ve built using modern tools and technologies. Each project reflects my passion for clean UI, strong backend architecture, and creating real-world solutions through code.
-        </TextAnimate>
+        <p className='text-[16px] sm1:text-[18px]'>Here are some of the projects I’ve built using modern tools and technologies. Each project reflects my passion for clean UI, strong backend architecture, and creating real-world solutions through code.
+        </p>
       </div>
      
       {
@@ -48,7 +48,7 @@ const Project = () => {
                     item.tech.map((t,index)=>{
                       return(
                         // <div key={index} className=' flex gap-5'>
-                          <span className='py-2 px-4 backdrop-blur-md bg-[#000e25] text-white rounded-2xl ' key={index}>{t}</span>
+                          <span className='py-2 px-4 backdrop-blur-md border-[0.5px] border-violet-300 bg-[#000e25] text-white rounded-2xl ' key={index}>{t}</span>
                         // </div>
                       )
                     })
