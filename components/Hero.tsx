@@ -1,7 +1,6 @@
 "use client";
 import React, { useContext } from "react";
 import { ProfileContext } from "./context/context";
-import Navbar from "./Navbar/Navbar";
 import { LightRays } from "./ui/light-rays";
 import { TextAnimate } from "./ui/text-animate";
 import { SparklesText } from "./ui/sparkles-text";
@@ -28,7 +27,7 @@ const Hero = () => {
            <TextAnimate animation="blurInUp" by="character"   once className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] mt-1">
                 Full-stack developer creating fast, scalable web applications.
             </TextAnimate>
-           <TextAnimate animation="blurInUp" by="character"  once className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] ">
+           <TextAnimate animation="blurInUp" by="character" delay={100}  once className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] ">
                 Passionate about clean code, modern frameworks, and seamless user
                 experiences.
             </TextAnimate>

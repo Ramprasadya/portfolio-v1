@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { ProfileContext } from "./context/context";
 import { GithubIcon } from "@/lib/GithubIcon";
-import { LinkedInIcon } from "./LinkedinIcon";
-import { InstagramIcon } from "./InstagramIcon";
-import { TextAnimate } from "./ui/text-animate";
+import { LinkedInIcon } from "../lib/LinkedinIcon";
+import { InstagramIcon } from "../lib/InstagramIcon";
 
 const Contact = () => {
   const { contactRef } = useContext(ProfileContext);
@@ -84,7 +83,7 @@ const Contact = () => {
             placeholder="Your Message"
             value={formData.message}
             onChange={handleChange}
-            // rows="4"
+            rows={4}
             className="p-3 border backdrop-blur-md bg-white/5 text-white rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
             required
           ></textarea>
