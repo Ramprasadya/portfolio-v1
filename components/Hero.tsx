@@ -25,11 +25,8 @@ const Hero = () => {
           <div>
 
            <TextAnimate animation="blurInUp" by="character"   once className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] mt-1">
-                Full-stack developer creating fast, scalable web applications.
-            </TextAnimate>
-           <TextAnimate animation="blurInUp" by="character" delay={100}  once className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] ">
                 Passionate about clean code, modern frameworks, and seamless user
-                experiences.
+                experiences. I build and deploy production-grade applications, not just UI.
             </TextAnimate>
           </div>
               
