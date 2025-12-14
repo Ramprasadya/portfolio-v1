@@ -15,8 +15,8 @@ const Project = () => {
       "A full-stack e-commerce application with cart features, product filtering, authentication, and payment integration.",
     image: Ecom,
     tech: ["React.js", "Node.js", "Express", "MongoDB"],
-    link: "https://your-ecommerce-demo.com",
-    github: "https://github.com/yourname/ecommerce"
+    link: "https://ramwear.vercel.app/",
+    github: "https://github.com/Ramprasadya/ramwear"
     }
   ]
   return (
