@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col md:gap-y-2 text-center w-full  md:w-3xl lg:w-5xl xl:w-7xl p-4">
         {/* <Navbar /> */}
         <h1 className=" text-3xl sm1:text-5xl md:text-6xl leading-0 font-bold josefin"><TypingAnimation typeSpeed={45}  > Ramprasad Yadav</TypingAnimation></h1>
-        <SparklesText sparklesCount={10} className=" text-xl sm1:text-2xl md:text-3xl josefin">Full Stack Developer</SparklesText>
+        <SparklesText sparklesCount={10} className=" text-xl sm1:text-2xl md:text-3xl josefin">Full Stack Developer (React, Next.js, Node.js)</SparklesText>
           <div>
 
            <TextAnimate animation="blurInUp" by="character"   once className="text-[16px] w-full px-2 sm1:text-[16px] md:text-[18px] mt-1">
