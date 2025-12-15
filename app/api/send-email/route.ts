@@ -74,7 +74,7 @@ const isValidEmail = (email: string) =>
 
   await transporter.sendMail({
     ...message,
-    from: `ScanA Team <${email.trim()}>`,
+    from: `Hey someone wants to connect with you <${email.trim()}>`,
     text: userMessage.trim(),
   });
 
