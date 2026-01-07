@@ -1,9 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import Navbar from "./Navbar/Navbar";
-const Hero =dynamic(()=>import('./Hero'),{
-  ssr:false
-});
+import Hero from "./Hero";
 const About =dynamic(()=>import('./About'),{
   ssr:false
 });
