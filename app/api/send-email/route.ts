@@ -2,30 +2,7 @@ import { NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis";
-
-export const rateLimit = new Ratelimit({
-  redis: Redis.fromEnv(),
-  limiter: Ratelimit.fixedWindow(3, "5 m"), // 5 requests per minute
-});
-
-
 export async function POST(request: Request) {
-
-   const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0] ||
-    "unknown";
-
-  const { success } = await rateLimit.limit(ip);
-
-  if (!success) {
-    return NextResponse.json(
-      { message: "Too many requests. Please slow down." },
-      { status: 429 }
-    );
-  }
-
   const isValidString = (value: any) =>
   typeof value === "string" && value.trim().length > 0;
 
@@ -97,7 +74,7 @@ const isValidEmail = (email: string) =>
 
   await transporter.sendMail({
     ...message,
-    from: `Hey someone wants to connect with you <${email.trim()}>`,
+    from: `ScanA Team <${email.trim()}>`,
     text: userMessage.trim(),
   });
 
