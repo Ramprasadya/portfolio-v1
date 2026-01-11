@@ -42,7 +42,7 @@ export const iconList = [
   { name: "Express", category: "Framework", src: Express },
   { name: "Node.js", category: "Runtime", src: Nodejs },
   { name: "MongoDB", category: "Database", src: Mongodb },
-  { name: "Nodemon", category: "Runtime", src: Nodemon },
+  // { name: "Nodemon", category: "Runtime", src: Nodemon },
   
 
   { name: "VS Code", category: "Tool", src: Vscode },
