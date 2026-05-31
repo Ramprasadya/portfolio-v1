@@ -2,9 +2,6 @@
 import React, { useContext } from "react";
 import { ProfileContext } from "./context/context";
 import { LightRays } from "./ui/light-rays";
-import { TextAnimate } from "./ui/text-animate";
-import { SparklesText } from "./ui/sparkles-text";
-import { TypingAnimation } from "./ui/typing-animation";
 
 const Hero = () => {
   const { homeRef } = useContext(ProfileContext);
