@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@upstash/ratelimit": "^2.0.7",
+    "@upstash/redis": "^1.36.1",
     "@vercel/analytics": "^1.6.1",
     "autoprefixer": "^10.5.0",
     "class-variance-authority": "^0.7.1",
