@@ -17,9 +17,10 @@ const Navbar = () => {
         {/* <p  className='text-2xl font-bold cursor-pointer' onClick={()=>scrollTo(homeRef)} >RPY</p> */}
       </div>
       <div className=' hidden sm1:flex items-center gap-x-7 ' >
-        <p className='cursor-pointer text-lg' onClick={()=>scrollTo(aboutRef)} >About</p>
-        <p className='cursor-pointer text-lg' onClick={()=> scrollTo(projectRef)}  >Project</p>
-        <p className='cursor-pointer text-lg' onClick={()=> scrollTo(contactRef)} >Contact</p>
+        <p className='cursor-pointer text-lg hover:text-green-500' onClick={()=>scrollTo(aboutRef)} >About</p>
+        <p className='cursor-pointer text-lg hover:text-green-500' onClick={()=> scrollTo(projectRef)}  >Project</p>
+        <p className='cursor-pointer text-lg hover:text-green-500' onClick={()=> scrollTo(contactRef)} >Contact</p>
+        <p  className='cursor-pointer text-lg hover:text-green-500' onClick={()=> {scrollTo(contactRef); window.open("https://drive.google.com/file/d/1Rwxk95dxWCoYDMvgbbG1Szoqkosli1rJ/view?usp=sharing", "_blank") }} >Resume</p>
       </div>
       <div className=' flex sm1:hidden' >
         <MenuIcon className='h-8 w-8' onClick={()=>setVisible(true)} />
