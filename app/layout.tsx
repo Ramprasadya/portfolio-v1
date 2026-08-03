@@ -16,9 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ramprasad yadav - Full Stack Developer",
-  description: " Full-stack developer creating fast, scalable web applications.",
-keywords: [
+  title: "Ramprasad | Full Stack Developer",
+  description: "Portfolio of Ramprasad Yadav, a Full Stack Developer specializing in building modern web applications and architectures.",
+  metadataBase: new URL("https://ramprasad.site"),
+  keywords: [
   "portfolio website",
   "personal portfolio",
   "web developer portfolio",
@@ -65,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#000e25]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-black text-white selection:bg-white/10`}
       >
         <ProfileContextProvider>
         {children}

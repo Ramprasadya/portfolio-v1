@@ -1,38 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @theme {
-  --breakpoint-sm1:578px;
+  --breakpoint-sm1: 578px;
   --breakpoint-xs: 468px;
   --breakpoint-xsm: 360px;
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-/* *{
-  background-color: #000e25;
-color: white;
-} */
+@layer base {
+  :root {
+    --background: #000000;
+    --foreground: #EDEDED; /* Softer white for premium feel */
+    --muted: #A1A1AA;
+    --border: rgba(255, 255, 255, 0.04); /* Subtler border */
+    --card: rgba(255, 255, 255, 0.02);
+    --card-hover: rgba(255, 255, 255, 0.04);
+    --glow: rgba(255, 255, 255, 0.1);
+  }
 
-.body {
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  html {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Extremely soft grid pattern */
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 64px 64px; /* Larger grid for cleaner look */
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+  }
 }
 
-.josefin {
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
+@layer utilities {
+  .glass-card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 1rem; /* 2xl for more modern feel */
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Elegant easing */
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.05); /* Inner highlight */
+  }
 
-/* Hide scrollbar for Chrome, Safari, Edge */
-::-webkit-scrollbar {
-  display: none;
-}
+  .glass-card:hover {
+    background-color: var(--card-hover);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      inset 0 1px 1px rgba(255,255,255,0.08), 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(255, 255, 255, 0.03); /* Subtle outer glow */
+    transform: translateY(-2px); /* Soft lift */
+  }
 
-/* Hide scrollbar for Firefox */
-html {
-  scrollbar-width: none;
-}
+  .radial-bg {
+    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.05), transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(255,255,255,0.02), transparent);
+  }
 
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+  
+  .border-glow:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Text gradients (monochrome) */
+  .text-gradient {
+    background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
