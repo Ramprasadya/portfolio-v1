@@ -54,12 +54,16 @@ export function Hero() {
             className="flex flex-col sm:flex-row items-center w-full lg:w-auto gap-4 pt-4 min-w-0"
           >
             <Button size="lg" className="rounded-full w-full sm:w-auto gap-2 min-w-0">
-              <span className="truncate">View Projects</span>
-              <ArrowRight className="w-4 h-4 shrink-0" />
+              <a href="#projects" className="flex items-center gap-2 ">
+                <span className="truncate">View Projects</span>
+                <ArrowRight className="w-4 h-4 shrink-0" />
+              </a>
             </Button>
             <Button size="lg" variant="secondary" className="rounded-full w-full sm:w-auto gap-2 min-w-0">
-              <Terminal className="w-4 h-4 shrink-0" />
-              <span className="truncate">Contact Me</span>
+              <a href="#contact" className="flex items-center gap-2 ">
+                <Terminal className="w-4 h-4 shrink-0" />
+                <span className="truncate">Contact Me</span>
+              </a>
             </Button>
           </motion.div>
         </div>
@@ -73,19 +77,19 @@ export function Hero() {
         >
           <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] aspect-square flex items-center justify-center">
             {/* Soft pulsing rings */}
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 8, ease: "easeInOut", repeat: Infinity }}
               className="absolute inset-0 rounded-full border border-white/5 bg-gradient-to-tr from-white/5 to-transparent blur-[2px]"
             />
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.3, 0.1] }}
               transition={{ duration: 10, ease: "easeInOut", repeat: Infinity, delay: 1 }}
               className="absolute inset-4 sm:inset-8 rounded-full border border-white/10 bg-white/[0.02] blur-[4px]"
             />
-            
+
             {/* Core Orb */}
-            <motion.div 
+            <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 30, ease: "linear", repeat: Infinity }}
               className="absolute inset-10 sm:inset-16 rounded-full bg-gradient-to-tr from-white/10 via-transparent to-white/5 backdrop-blur-3xl border border-white/10 shadow-[inset_0_0_40px_rgba(255,255,255,0.05),0_0_80px_rgba(255,255,255,0.1)] flex items-center justify-center overflow-hidden"
