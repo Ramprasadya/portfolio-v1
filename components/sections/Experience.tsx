@@ -20,7 +20,7 @@ const experiences = [
 export function Experience() {
   return (
     <section id="experience" className="py-16 md:py-20 xl:py-32 relative">
-      <div className="max-w-[1000px] mx-auto px-5 md:px-6 xl:px-8">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8">
         <div className="mb-16 md:mb-20 text-center">
           <motion.h2
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}

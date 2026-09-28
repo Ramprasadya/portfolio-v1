@@ -44,7 +44,7 @@ const skills = [
 export function Skills() {
   return (
     <section id="skills" className="py-16 md:py-20 xl:py-32 relative">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-6 xl:px-8">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8">
         <div className="mb-12 md:mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <motion.h2
@@ -77,17 +77,17 @@ export function Skills() {
               whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-              className="glass-card group p-6 flex flex-col gap-4 relative overflow-hidden"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_rgba(255,255,255,0.02)_28%,_rgba(0,0,0,0.12)_100%)] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_18px_55px_rgba(59,130,246,0.12)]"
             >
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              
-              <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-center text-white/50 group-hover:text-white group-hover:bg-white/[0.08] transition-all duration-500">
-                {skill.icon}
-              </div>
-              <div className="relative z-10">
-                <h3 className="text-lg font-medium text-white mb-1.5 tracking-tight">{skill.name}</h3>
-                <p className="text-white/40 text-sm leading-relaxed font-light">{skill.description}</p>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="relative z-10 flex flex-col gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/[0.09] group-hover:text-white">
+                  {skill.icon}
+                </div>
+                <div>
+                  <h3 className="mb-2 text-xl font-semibold tracking-tight text-white">{skill.name}</h3>
+                  <p className="text-sm leading-relaxed text-white/60 font-light">{skill.description}</p>
+                </div>
               </div>
             </motion.div>
           ))}

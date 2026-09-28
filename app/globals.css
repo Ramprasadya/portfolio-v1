@@ -6,7 +6,7 @@
   --breakpoint-xs: 468px;
   --breakpoint-xsm: 360px;
   
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-plus-jakarta-sans);
   --font-mono: var(--font-geist-mono);
 }
 

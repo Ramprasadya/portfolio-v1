@@ -9,7 +9,7 @@ export function Contact() {
     <section id="contact" className="py-16 md:py-20 xl:py-32 relative overflow-hidden">
       <div className="absolute inset-0 radial-bg opacity-30 pointer-events-none" />
       
-      <div className="max-w-[1400px] mx-auto px-5 md:px-6 xl:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8 relative z-10">
         <div className="text-center mb-16 md:mb-20">
           <motion.h2
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
@@ -60,7 +60,7 @@ export function Contact() {
               <div>
                 <h3 className="text-lg md:text-xl font-medium text-white mb-1.5 tracking-tight">Location</h3>
                 <p className="text-white/40 mb-2 font-light">Available for work opportunities.</p>
-                <span className="text-white/80">India</span>
+                <span className="text-white/80">Noida(India)</span>
               </div>
             </div>
           </motion.div>

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ProfileContextProvider from "@/components/context/context";
 import { Analytics } from "@vercel/analytics/next"
 import OGImage from './og.png'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
 });
 
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 ],
     openGraph: {
       type: "website",
-      url: "https://ramprasad.site",
+      url: "https://ramy21.vercel.app",
       title: "Ramprasad yadav - Full Stack Developer",
       description:
         " Full-stack developer creating fast, scalable web applications.",
@@ -66,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-black text-white selection:bg-white/10`}
+        className={`${plusJakartaSans.variable} ${geistMono.variable} antialiased min-h-screen bg-black text-white selection:bg-white/10`}
       >
         <ProfileContextProvider>
         {children}

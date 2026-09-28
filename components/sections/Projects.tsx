@@ -16,7 +16,7 @@ const projects = [
   },
   {
     title: "AnimateIcons (Open Source)",
-    description: "Contributed two animated icons (Login and Logout) to the open-source project AnimateIcons. Improved UI consistency and enhanced the icon animation library's component collection.",
+    description: "Contributed two animated icons  to the open-source project AnimateIcons. Improved UI consistency and enhanced the icon animation library's component collection.",
     tech: ["React", "CSS Animations", "Motion/React", "Shadcn", "Lucide"],
     github: "https://github.com/Avijit07x/animateicons",
     live: "https://animateicons.in",
@@ -27,7 +27,7 @@ const projects = [
 export function Projects() {
   return (
     <section id="projects" className="py-16 md:py-20 xl:py-32 relative">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-6 xl:px-8">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8">
         <div className="mb-12 md:mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <motion.h2

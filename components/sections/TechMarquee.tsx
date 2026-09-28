@@ -21,7 +21,7 @@ export function TechMarquee() {
       <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-black to-transparent z-10" />
       <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-black to-transparent z-10" />
       
-      <div className="max-w-[1400px] mx-auto px-5 md:px-6 xl:px-8 mb-8 md:mb-12 text-center">
+      <div className="w-full mx-auto  px-5 md:px-6 xl:px-8 mb-8 md:mb-12 text-center">
         <p className="text-xs md:text-sm font-medium text-white/40 tracking-[0.2em] uppercase">
           Powered By Modern Technologies
         </p>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function About() {
   return (
     <section id="about" className="py-16 md:py-20 xl:py-32 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-6 xl:px-8 grid lg:grid-cols-2 gap-10 xl:gap-20 items-center">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8 grid lg:grid-cols-2 gap-10 xl:gap-20 items-center">
         {/* Left: Description */}
         <div className="flex flex-col gap-4 md:gap-6 text-center lg:text-left">
           <motion.div
@@ -19,12 +19,13 @@ export function About() {
             </h2>
             <div className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed max-w-[600px] mx-auto lg:mx-0">
               <p>
-                With 2 years of dedicated experience, I have developed
+                With 2+ years of dedicated experience, I have developed
                 a deep understanding of building robust, scalable, and high-performance
                 web applications using React.js, Next.js, and the MERN stack.
               </p>
               <p>
                 My approach combines clean architecture with pixel-perfect design,
+                SEO-friendly, Performance-optimized, and accessible interfaces,
                 ensuring that every project not only functions flawlessly under load
                 but also delivers an exceptional user experience.
               </p>

@@ -13,7 +13,7 @@ export function Process() {
   return (
     <section className="py-16 md:py-20 xl:py-32 relative overflow-hidden border-y border-white/[0.02]">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-none" />
-      <div className="max-w-[1400px] mx-auto px-5 md:px-6 xl:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8 relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <motion.h2
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}

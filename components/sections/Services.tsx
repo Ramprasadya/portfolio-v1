@@ -12,7 +12,7 @@ const services = [
   {
     icon: <Layers className="w-8 h-8" />,
     title: "Frontend Engineering",
-    description: "Pixel-perfect, responsive, and accessible interfaces engineered for the best user experience."
+    description: "Pixel-perfect, responsive, SEO-friendly, Performance-optimized, and accessible interfaces engineered for the best user experience."
   },
   {
     icon: <Server className="w-8 h-8" />,
@@ -26,7 +26,7 @@ export function Services() {
     <section className="py-16 md:py-20 xl:py-32 relative overflow-hidden">
       <div className="absolute inset-0 radial-bg opacity-30 pointer-events-none" />
       
-      <div className="max-w-[1400px] mx-auto px-5 md:px-6 xl:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8 relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}

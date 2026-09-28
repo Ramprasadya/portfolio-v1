@@ -17,7 +17,7 @@ const reasons = [
 export function WhyWorkWithMe() {
   return (
     <section className="py-16 md:py-20 xl:py-32 relative">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-6 xl:px-8">
+      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8">
         <div className="text-center mb-16 md:mb-20">
           <motion.h2
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}

@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import logoImage from "@/components/logo/logo.png";
+import { GithubIcon } from "../ui/github-icon";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -35,14 +38,15 @@ export function Navbar() {
           : "bg-transparent border-transparent"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="relative z-10 flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-shadow duration-500">
-            <span className="text-black font-bold text-xl tracking-tighter">R</span>
-          </div>
-          <span className="text-white font-medium text-lg tracking-tight hidden sm:block">
-            Ramprasad
-          </span>
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <Link href="/" className="relative z-10 flex items-center group" aria-label="Ramprasad home">
+          <Image
+            src={logoImage}
+            alt="Ramprasad Yadav logo"
+            priority
+            className="h-9 w-auto sm:h-12 drop-shadow-[0_0_18px_rgba(59,130,246,0.7)]"
+            sizes="(max-width: 640px) 120px, 180px"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -65,10 +69,10 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <Link href="https://github.com/Ramprasadya" target="_blank" rel="noreferrer">
             <Button variant="ghost" size="icon" className="rounded-full">
-              <Github className="w-5 h-5" />
+              <GithubIcon isAnimated={true} className="w-5 h-5 text-orange-500" title="GitHub" />
             </Button>
           </Link>
-          <Button variant="secondary" className="gap-2">
+          <Button onClick={()=>{window.open("https://drive.google.com/file/d/1qasR3RiujyUjOjpdcx-bfPuWteNiUS0l/view?usp=sharing")}} variant="secondary" className="gap-2 cursor-pointer">
             <Download className="w-4 h-4" />
             Resume
           </Button>
@@ -107,13 +111,13 @@ export function Navbar() {
               ))}
             </ul>
             <div className="flex flex-col gap-4 pb-8 mt-auto">
-              <Button variant="secondary" className="w-full gap-2">
+              <Button onClick={()=>{window.open("https://drive.google.com/file/d/1qasR3RiujyUjOjpdcx-bfPuWteNiUS0l/view?usp=sharing")}} variant="secondary" className="w-full gap-2 cursor-pointer">
                 <Download className="w-4 h-4" />
                 Resume
               </Button>
               <Link href="https://github.com/Ramprasadya" target="_blank" rel="noreferrer" className="w-full">
                 <Button variant="ghost" className="w-full rounded-xl border border-white/10 gap-2">
-                  <Github className="w-5 h-5" />
+                  <GithubIcon isAnimated={true} className="w-5 h-5" />
                   GitHub
                 </Button>
               </Link>
