@@ -1,14 +1,19 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { ArrowRight, Terminal } from "lucide-react";
+import { ArrowRightIcon } from "../ui/arrow-right-icon";
+import { TerminalIcon } from "../ui/terminal-icon";
 
 export function Hero() {
+  const arrowRef = useRef<React.ComponentRef<typeof ArrowRightIcon>>(null);
+  const terminalRef = useRef<React.ComponentRef<typeof TerminalIcon>>(null);
+
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] max-w-7xl w-full mx-auto flex items-center justify-center pt-32 pb-16 md:pt-40 md:pb-20 xl:py-32 overflow-hidden radial-bg"
+      className="relative min-h-[100dvh] max-w-7xl px-5 w-full mx-auto flex items-center justify-center pt-32 pb-16 md:pt-40 md:pb-20 xl:py-32 overflow-hidden radial-bg"
     >
       {/* Background abstract element */}
       <div className="absolute inset-0 z-0">
@@ -51,17 +56,28 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center w-full lg:w-auto gap-4 pt-4 min-w-0"
+            className="flex flex-col sm:flex-row items-center justify-center w-full lg:w-auto gap-4 pt-4 min-w-0"
           >
-            <Button size="lg" className="rounded-full w-full sm:w-auto gap-2 min-w-0">
+            <Button
+              size="lg"
+              className="rounded-full w-full sm:w-auto gap-2 min-w-0"
+              onMouseEnter={() => arrowRef.current?.startAnimation()}
+              onMouseLeave={() => arrowRef.current?.stopAnimation()}
+            >
               <a href="#projects" className="flex items-center gap-2 ">
                 <span className="truncate">View Projects</span>
-                <ArrowRight className="w-4 h-4 shrink-0" />
+                <ArrowRightIcon ref={arrowRef} className="w-4 h-4 shrink-0" />
               </a>
             </Button>
-            <Button size="lg" variant="secondary" className="rounded-full w-full sm:w-auto gap-2 min-w-0">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="rounded-full w-full sm:w-auto gap-2 min-w-0"
+              onMouseEnter={() => terminalRef.current?.startAnimation()}
+              onMouseLeave={() => terminalRef.current?.stopAnimation()}
+            >
               <a href="#contact" className="flex items-center gap-2 ">
-                <Terminal className="w-4 h-4 shrink-0" />
+                <TerminalIcon ref={terminalRef} className="w-4 h-4 shrink-0" />
                 <span className="truncate">Contact Me</span>
               </a>
             </Button>

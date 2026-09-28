@@ -17,27 +17,27 @@ const skills = [
   {
     icon: <Code2 className="w-6 h-6" />,
     name: "Languages",
-    description: "JavaScript, TypeScript, HTML, CSS"
+    tags: ["JavaScript", "TypeScript", "HTML", "CSS"]
   },
   {
     icon: <Layout className="w-6 h-6" />,
     name: "Libraries & Frameworks",
-    description: "React.js, Redux, Zustand, Tailwind CSS, Material UI, Bootstrap"
+    tags: ["React.js", "Redux", "Zustand", "Tailwind CSS", "Material UI", "Bootstrap"]
   },
   {
     icon: <Server className="w-6 h-6" />,
     name: "Backend & Database",
-    description: "Node.js, Express.js, MongoDB, REST APIs"
+    tags: ["Node.js", "Express.js", "MongoDB", "REST APIs"]
   },
   {
     icon: <Layers className="w-6 h-6" />,
     name: "DevOps & Deployment",
-    description: "Docker, AWS (EC2, S3, Route 53), Vercel, Netlify, Render"
+    tags: ["Docker", "AWS", "Vercel", "Netlify", "Render"]
   },
   {
     icon: <Terminal className="w-6 h-6" />,
     name: "Developer Tools",
-    description: "Git, GitHub, Postman, VS Code, Google Cloud Platform"
+    tags: ["Git", "GitHub", "Postman", "VS Code", "GCP"]
   }
 ];
 
@@ -85,8 +85,17 @@ export function Skills() {
                   {skill.icon}
                 </div>
                 <div>
-                  <h3 className="mb-2 text-xl font-semibold tracking-tight text-white">{skill.name}</h3>
-                  <p className="text-sm leading-relaxed text-white/60 font-light">{skill.description}</p>
+                  <h3 className="mb-3 text-xl font-semibold tracking-tight text-white">{skill.name}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skill.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 bg-white/[0.02] px-2.5 py-1 text-xs font-medium text-white/70 backdrop-blur-sm transition-colors duration-300 hover:border-white/15 hover:bg-white/[0.04] hover:text-white"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

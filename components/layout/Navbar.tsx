@@ -15,7 +15,6 @@ const navLinks = [
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -50,7 +49,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center">
+        <nav className="hidden md2:flex items-center">
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] backdrop-blur-md">
             {navLinks.map((link) => (
               <Link
@@ -66,7 +65,7 @@ export function Navbar() {
         </nav>
 
         {/* Actions */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md2:flex items-center gap-4">
           <Link href="https://github.com/Ramprasadya" target="_blank" rel="noreferrer">
             <Button variant="ghost" size="icon" className="rounded-full">
               <GithubIcon isAnimated={true} className="w-5 h-5 text-orange-500" title="GitHub" />
@@ -80,7 +79,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden relative z-10 p-2 text-white/70 hover:text-white"
+          className="md2:hidden relative z-10 p-2 text-white/70 hover:text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
@@ -95,7 +94,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-20 left-0 w-full h-[calc(100vh-80px)] bg-black/95 backdrop-blur-xl border-t border-white/10 p-6 md:hidden flex flex-col justify-between overflow-y-auto"
+            className="fixed top-20 left-0 w-full h-[calc(100vh-80px)] bg-black/95 backdrop-blur-xl border-t border-white/10 p-6 md2:hidden flex flex-col justify-between overflow-y-auto"
           >
             <ul className="flex flex-col gap-2 text-xl font-medium text-white/70 mt-8">
               {navLinks.map((link) => (

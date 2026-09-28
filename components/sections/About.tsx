@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function About() {
   return (
     <section id="about" className="py-16 md:py-20 xl:py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8 grid lg:grid-cols-2 gap-10 xl:gap-20 items-center">
+      <div className="max-w-7xl  mx-auto px-5 md:px-6 xl:px-8 grid lg:grid-cols-2 gap-10 xl:gap-20 items-center">
         {/* Left: Description */}
         <div className="flex flex-col gap-4 md:gap-6 text-center lg:text-left">
           <motion.div

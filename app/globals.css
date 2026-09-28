@@ -5,7 +5,7 @@
   --breakpoint-sm1: 578px;
   --breakpoint-xs: 468px;
   --breakpoint-xsm: 360px;
-  
+  --breakpoint-md2: 940px;
   --font-sans: var(--font-plus-jakarta-sans);
   --font-mono: var(--font-geist-mono);
 }
