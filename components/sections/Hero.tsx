@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { ArrowRightIcon } from "../ui/arrow-right-icon";
 import { TerminalIcon } from "../ui/terminal-icon";
@@ -9,6 +10,18 @@ import { TerminalIcon } from "../ui/terminal-icon";
 export function Hero() {
   const arrowRef = useRef<React.ComponentRef<typeof ArrowRightIcon>>(null);
   const terminalRef = useRef<React.ComponentRef<typeof TerminalIcon>>(null);
+  const [location, setLocation] = useState("");
+
+  useEffect(() => {
+    fetch("/api/location", { cache: "no-store" })
+      .then(async (response) => {
+        if (response.status === 404) return;
+        if (!response.ok) throw new Error(`Location API returned ${response.status}.`);
+        const currentLocation = (await response.json()) as { location: string };
+        setLocation(currentLocation.location);
+      })
+      .catch((error: unknown) => console.error("Unable to load current location:", error));
+  }, []);
 
   return (
     <section
@@ -33,6 +46,13 @@ export function Hero() {
             <span className="w-2 h-2 shrink-0 rounded-full bg-green-500 animate-pulse" />
             <span className="truncate">Available for new opportunities</span>
           </motion.div>
+
+          {location && (
+            <p className="inline-flex items-center gap-2 text-sm text-white/55">
+              <MapPin className="h-4 w-4" />
+              {location}
+            </p>
+          )}
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

@@ -1,11 +1,22 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
-const projects = [
+type Project = {
+  _id?: string;
+  title: string;
+  description: string;
+  tech: string[];
+  github?: string;
+  live?: string;
+  image?: string;
+};
+
+const defaultProjects: Project[] = [
   {
     title: "RamWear : E-Commerce",
     description: "Built a full-featured fashion e-commerce platform with a seamless shopping experience. Implemented secure user authentication, Razorpay payments, COD support, and an admin panel.",
@@ -21,10 +32,21 @@ const projects = [
     github: "https://github.com/Avijit07x/animateicons",
     live: "https://animateicons.in",
     image: "/animateicons.png"
-  }
+  },
 ];
 
 export function Projects() {
+  const [projects, setProjects] = useState(defaultProjects);
+
+  useEffect(() => {
+    fetch("/api/projects", { cache: "no-store" })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Projects API returned ${response.status}.`);
+        setProjects((await response.json()) as Project[]);
+      })
+      .catch((error: unknown) => console.error("Unable to load portfolio projects:", error));
+  }, []);
+
   return (
     <section id="projects" className="py-16 md:py-20 xl:py-32 relative">
       <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8">
@@ -55,7 +77,7 @@ export function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={project._id ?? project.title}
               initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
@@ -67,7 +89,7 @@ export function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent mix-blend-overlay z-10" />
                 <div 
                   className="w-full h-full relative group-hover:scale-105 transition-transform duration-1000 ease-[0.23,1,0.32,1] flex items-center justify-center bg-cover bg-center"
-                  style={{ backgroundImage: `url(${project.image})` }}
+                  style={project.image ? { backgroundImage: `url(${project.image})` } : undefined}
                 >
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700" />
                 </div>
@@ -92,18 +114,22 @@ export function Projects() {
                 </div>
 
                 <div className="flex items-center gap-4 mt-auto">
-                  <Link href={project.github} target="_blank" className="flex-1">
-                    <Button variant="secondary" className="w-full gap-2 text-xs">
-                      <Github className="w-3.5 h-3.5" />
-                      Code
-                    </Button>
-                  </Link>
-                  <Link href={project.live} target="_blank" className="flex-1">
-                    <Button variant="default" className="w-full gap-2 text-xs">
-                      <ExternalLink className="w-3.5 h-3.5 text-black" />
-                      Live
-                    </Button>
-                  </Link>
+                  {project.github && (
+                    <Link href={project.github} target="_blank" rel="noreferrer" className="flex-1">
+                      <Button variant="secondary" className="w-full gap-2 text-xs">
+                        <Github className="w-3.5 h-3.5" />
+                        Code
+                      </Button>
+                    </Link>
+                  )}
+                  {project.live && (
+                    <Link href={project.live} target="_blank" rel="noreferrer" className="flex-1">
+                      <Button variant="default" className="w-full gap-2 text-xs">
+                        <ExternalLink className="w-3.5 h-3.5 text-black" />
+                        Live
+                      </Button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>

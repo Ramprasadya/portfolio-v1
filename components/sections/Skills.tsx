@@ -1,47 +1,65 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Code2,
-  Server,
-  Database,
-  Layout,
-  Globe,
-  Terminal,
-  Cpu,
-  Layers,
-  Workflow
-} from "lucide-react";
+import { Code2, Layout, Layers, Server, Terminal, type LucideIcon } from "lucide-react";
 
-const skills = [
+type Skill = {
+  _id?: string;
+  icon: string;
+  name: string;
+  tags: string[];
+};
+
+const iconByName: Record<string, LucideIcon> = {
+  Code2,
+  Layout,
+  Layers,
+  Server,
+  Terminal,
+};
+
+const defaultSkills: Skill[] = [
   {
-    icon: <Code2 className="w-6 h-6" />,
+    icon: "Code2",
     name: "Languages",
     tags: ["JavaScript", "TypeScript", "HTML", "CSS"]
   },
   {
-    icon: <Layout className="w-6 h-6" />,
+    icon: "Layout",
     name: "Libraries & Frameworks",
     tags: ["React.js", "Redux", "Zustand", "Tailwind CSS", "Material UI", "Bootstrap"]
   },
   {
-    icon: <Server className="w-6 h-6" />,
+    icon: "Server",
     name: "Backend & Database",
     tags: ["Node.js", "Express.js", "MongoDB", "REST APIs"]
   },
   {
-    icon: <Layers className="w-6 h-6" />,
+    icon: "Layers",
     name: "DevOps & Deployment",
     tags: ["Docker", "AWS", "Vercel", "Netlify", "Render"]
   },
   {
-    icon: <Terminal className="w-6 h-6" />,
+    icon: "Terminal",
     name: "Developer Tools",
     tags: ["Git", "GitHub", "Postman", "VS Code", "GCP"]
   }
 ];
 
 export function Skills() {
+  const [skills, setSkills] = useState(defaultSkills);
+
+  useEffect(() => {
+    fetch("/api/skills", { cache: "no-store" })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Skills API returned ${response.status}.`);
+        const savedSkills = (await response.json()) as Array<Omit<Skill, "icon"> & { icon?: string }>;
+        setSkills(savedSkills.map((skill) => ({ ...skill, icon: skill.icon || "Code2" })));
+      })
+      .catch((error: unknown) => console.error("Unable to load portfolio skills:", error));
+  }, []);
+
   return (
     <section id="skills" className="py-16 md:py-20 xl:py-32 relative">
       <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8">
@@ -72,7 +90,7 @@ export function Skills() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
           {skills.map((skill, index) => (
             <motion.div
-              key={skill.name}
+              key={skill._id ?? skill.name}
               initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
               whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
               viewport={{ once: true }}
@@ -82,7 +100,10 @@ export function Skills() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="relative z-10 flex flex-col gap-4">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/[0.09] group-hover:text-white">
-                  {skill.icon}
+                  {(() => {
+                    const Icon = iconByName[skill.icon] ?? Code2;
+                    return <Icon className="h-6 w-6" />;
+                  })()}
                 </div>
                 <div>
                   <h3 className="mb-3 text-xl font-semibold tracking-tight text-white">{skill.name}</h3>

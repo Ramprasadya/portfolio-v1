@@ -20,6 +20,9 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [resumeUrl, setResumeUrl] = useState<string | null>(
+    "https://drive.google.com/file/d/1qasR3RiujyUjOjpdcx-bfPuWteNiUS0l/view?usp=sharing"
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +30,20 @@ export function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/resume", { cache: "no-store" })
+      .then(async (response) => {
+        if (response.status === 404) {
+          setResumeUrl(null);
+          return;
+        }
+        if (!response.ok) throw new Error(`Resume API returned ${response.status}.`);
+        const resume = (await response.json()) as { url: string };
+        setResumeUrl(resume.url);
+      })
+      .catch((error: unknown) => console.error("Unable to load resume link:", error));
   }, []);
 
   return (
@@ -71,10 +88,14 @@ export function Navbar() {
               <GithubIcon isAnimated={true} className="w-5 h-5 text-orange-500" title="GitHub" />
             </Button>
           </Link>
-          <Button onClick={()=>{window.open("https://drive.google.com/file/d/1qasR3RiujyUjOjpdcx-bfPuWteNiUS0l/view?usp=sharing")}} variant="secondary" className="gap-2 cursor-pointer">
-            <Download className="w-4 h-4" />
-            Resume
-          </Button>
+          {resumeUrl && (
+            <Link href={resumeUrl} target="_blank" rel="noreferrer">
+              <Button variant="secondary" className="gap-2 cursor-pointer">
+                <Download className="w-4 h-4" />
+                Resume
+              </Button>
+            </Link>
+          )}
         </div>
 
         {/* Mobile Toggle */}
@@ -110,10 +131,14 @@ export function Navbar() {
               ))}
             </ul>
             <div className="flex flex-col gap-4 pb-8 mt-auto">
-              <Button onClick={()=>{window.open("https://drive.google.com/file/d/1qasR3RiujyUjOjpdcx-bfPuWteNiUS0l/view?usp=sharing")}} variant="secondary" className="w-full gap-2 cursor-pointer">
-                <Download className="w-4 h-4" />
-                Resume
-              </Button>
+              {resumeUrl && (
+                <Link href={resumeUrl} target="_blank" rel="noreferrer">
+                  <Button variant="secondary" className="w-full gap-2 cursor-pointer">
+                    <Download className="w-4 h-4" />
+                    Resume
+                  </Button>
+                </Link>
+              )}
               <Link href="https://github.com/Ramprasadya" target="_blank" rel="noreferrer" className="w-full">
                 <Button variant="ghost" className="w-full rounded-xl border border-white/10 gap-2">
                   <GithubIcon isAnimated={true} className="w-5 h-5" />
