@@ -33,6 +33,25 @@ const defaultProjects: Project[] = [
     live: "https://animateicons.in",
     image: "/animateicons.png"
   },
+{
+  title: "BulkMail21 (Email Automation Platform)",
+  description:
+    "Built a bulk email management platform that allows users to upload recipient lists, attach documents, create customizable email templates, and send emails to multiple recipients simultaneously. Features real-time email delivery tracking, enabling users to monitor whether emails were successfully delivered, pending, or failed. Designed to streamline large-scale email communication for businesses, marketing campaigns, and customer outreach.",
+
+  tech: [
+    "React",
+    "Next.js",
+    "Node.js",
+    "MongoDB",
+    "Express.js",
+    "Nodemailer",
+    "Tailwind CSS"
+  ],
+
+  github: "https://github.com/Ramprasadya",
+  live: "https://bulkmail21.vercel.app/",
+  image: "/bulkmail21.png"
+}
 ];
 
 export function Projects() {
