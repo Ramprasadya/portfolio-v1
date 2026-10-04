@@ -18,12 +18,11 @@ export default function Home() {
       <main className="flex flex-col w-full overflow-hidden">
         <Hero />
         <TechMarquee />
-        <About />
-        <Services />
         <Skills />
         <Projects />
         <Experience />
-        <Process />
+        <Services />
+        <About />
         <WhyWorkWithMe />
         <Contact />
       </main>

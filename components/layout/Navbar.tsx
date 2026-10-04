@@ -11,9 +11,9 @@ import { GithubIcon } from "../ui/github-icon";
 
 const navLinks = [
   { name: "Home", href: "#home" },
+  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
   { name: "About", href: "#about" },
 ];
 
@@ -32,19 +32,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    fetch("/api/resume", { cache: "no-store" })
-      .then(async (response) => {
-        if (response.status === 404) {
-          setResumeUrl(null);
-          return;
-        }
-        if (!response.ok) throw new Error(`Resume API returned ${response.status}.`);
-        const resume = (await response.json()) as { url: string };
-        setResumeUrl(resume.url);
-      })
-      .catch((error: unknown) => console.error("Unable to load resume link:", error));
-  }, []);
 
   return (
     <header

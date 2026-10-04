@@ -50,15 +50,7 @@ const defaultSkills: Skill[] = [
 export function Skills() {
   const [skills, setSkills] = useState(defaultSkills);
 
-  useEffect(() => {
-    fetch("/api/skills", { cache: "no-store" })
-      .then(async (response) => {
-        if (!response.ok) throw new Error(`Skills API returned ${response.status}.`);
-        const savedSkills = (await response.json()) as Array<Omit<Skill, "icon"> & { icon?: string }>;
-        setSkills(savedSkills.map((skill) => ({ ...skill, icon: skill.icon || "Code2" })));
-      })
-      .catch((error: unknown) => console.error("Unable to load portfolio skills:", error));
-  }, []);
+
 
   return (
     <section id="skills" className="py-16 md:py-20 xl:py-32 relative">

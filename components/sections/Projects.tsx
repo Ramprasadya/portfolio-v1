@@ -36,7 +36,7 @@ const defaultProjects: Project[] = [
 {
   title: "BulkMail21 (Email Automation Platform)",
   description:
-    "Built a bulk email management platform that allows users to upload recipient lists, attach documents, create customizable email templates, and send emails to multiple recipients simultaneously. Features real-time email delivery tracking, enabling users to monitor whether emails were successfully delivered, pending, or failed. Designed to streamline large-scale email communication for businesses, marketing campaigns, and customer outreach.",
+    "Built a bulk email management platform that allows users to upload recipient lists, attach documents, create customizable email templates, and send emails to multiple recipients simultaneously.",
 
   tech: [
     "React",
@@ -57,14 +57,7 @@ const defaultProjects: Project[] = [
 export function Projects() {
   const [projects, setProjects] = useState(defaultProjects);
 
-  useEffect(() => {
-    fetch("/api/projects", { cache: "no-store" })
-      .then(async (response) => {
-        if (!response.ok) throw new Error(`Projects API returned ${response.status}.`);
-        setProjects((await response.json()) as Project[]);
-      })
-      .catch((error: unknown) => console.error("Unable to load portfolio projects:", error));
-  }, []);
+
 
   return (
     <section id="projects" className="py-16 md:py-20 xl:py-32 relative">

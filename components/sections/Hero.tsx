@@ -12,16 +12,6 @@ export function Hero() {
   const terminalRef = useRef<React.ComponentRef<typeof TerminalIcon>>(null);
   const [location, setLocation] = useState("");
 
-  useEffect(() => {
-    fetch("/api/location", { cache: "no-store" })
-      .then(async (response) => {
-        if (response.status === 404) return;
-        if (!response.ok) throw new Error(`Location API returned ${response.status}.`);
-        const currentLocation = (await response.json()) as { location: string };
-        setLocation(currentLocation.location);
-      })
-      .catch((error: unknown) => console.error("Unable to load current location:", error));
-  }, []);
 
   return (
     <section
