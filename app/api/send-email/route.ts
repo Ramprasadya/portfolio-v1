@@ -22,18 +22,17 @@ export async function POST(request: Request) {
     },
   };
 
-  const transporter = nodemailer.createTransport({
+  const transporter = nodemailer?.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_TO,
-      pass: process.env.PASS,
+      user: process?.env?.EMAIL_TO,
+      pass: process?.env?.PASS,
     },
     tls: {
       rejectUnauthorized: false,
     },
   });
 
-  // console.log(JSON.stringify(body))
 
   try {
     if (!body.name || !body.email || !body.message) {

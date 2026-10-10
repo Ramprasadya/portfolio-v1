@@ -57,8 +57,6 @@ const defaultProjects: Project[] = [
 export function Projects() {
   const [projects, setProjects] = useState(defaultProjects);
 
-
-
   return (
     <section id="projects" className="py-16 md:py-20 xl:py-32 relative">
       <div className="max-w-7xl mx-auto px-5 md:px-6 xl:px-8">

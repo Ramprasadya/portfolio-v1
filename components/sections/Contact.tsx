@@ -1,10 +1,76 @@
 "use client";
 
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Send, Mail, MapPin } from "lucide-react";
 
+const initialFormState = {
+  name: "",
+  email: "",
+  message: "",
+};
+
 export function Contact() {
+  const [formData, setFormData] = useState(initialFormState);
+ 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<{
+    type: "success" | "error" | "idle";
+    text: string;
+  }>({ type: "idle", text: "" });
+
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+   
+    setFormData((current) => ({ ...current, [event?.target?.name]: event?.target.value }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const { name, email, message } = formData;
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setStatusMessage({
+        type: "error",
+        text: "Please fill in all fields before sending your message.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatusMessage({ type: "idle", text: "" });
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.error || data?.message || "Something went wrong.");
+      }
+
+      setStatusMessage({
+        type: "success",
+        text: data?.message || "Your message has been sent successfully.",
+      });
+      setFormData(initialFormState);
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "There was a problem sending your message.";
+      setStatusMessage({ type: "error", text: message });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-16 md:py-20 xl:py-32 relative overflow-hidden">
       <div className="absolute inset-0 radial-bg opacity-30 pointer-events-none" />
@@ -73,7 +139,7 @@ export function Contact() {
             transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1], delay: 0.2 }}
             className="glass-card p-6 md:p-8 lg:p-10"
           >
-            <form className="flex flex-col gap-5 md:gap-6">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5 md:gap-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-sm font-medium text-white/70">
@@ -82,7 +148,11 @@ export function Contact() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="John Doe"
+                    disabled={isSubmitting}
                     className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 min-h-[44px] text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300"
                   />
                 </div>
@@ -93,7 +163,11 @@ export function Contact() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="john@example.com"
+                    disabled={isSubmitting}
                     className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 min-h-[44px] text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300"
                   />
                 </div>
@@ -104,13 +178,34 @@ export function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell me about your project..."
+                  disabled={isSubmitting}
                   className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300 resize-none"
                 />
               </div>
-              <Button size="lg" className="w-full mt-2 gap-2 group">
-                Send Message
+
+              {statusMessage.text ? (
+                <p
+                  aria-live="polite"
+                  className={`text-sm ${
+                    statusMessage.type === "success" ? "text-emerald-400" : "text-red-400"
+                  }`}
+                >
+                  {statusMessage.text}
+                </p>
+              ) : null}
+
+              <Button
+                type="submit"
+                size="lg"
+                disabled={isSubmitting}
+                className="w-full mt-2 gap-2 group disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
                 <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
