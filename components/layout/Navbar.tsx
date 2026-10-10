@@ -22,7 +22,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resumeUrl, setResumeUrl] = useState<string | null>(
-    "https://drive.google.com/file/d/1qasR3RiujyUjOjpdcx-bfPuWteNiUS0l/view?usp=sharing"
+    "https://drive.google.com/file/d/1LFZ6PR-PL5Of5W9J5KhG3DZhZYiefnzO/view?usp=sharing"
   );
 
   useEffect(() => {
