@@ -4,6 +4,7 @@ import "./globals.css";
 import ProfileContextProvider from "@/components/context/context";
 import { Analytics } from "@vercel/analytics/next"
 import OGImage from './og.png'
+import { Toaster, toast } from 'sonner';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -69,6 +70,7 @@ export default function RootLayout({
         className={`${plusJakartaSans.variable} ${geistMono.variable} antialiased min-h-screen bg-black text-white selection:bg-white/10`}
       >
         <ProfileContextProvider>
+        <Toaster position="top-right" />
         {children}
         <Analytics/>
         </ProfileContextProvider>

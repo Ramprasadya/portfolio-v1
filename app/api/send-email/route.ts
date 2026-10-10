@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     }
     await transporter.sendMail(message);
     return NextResponse.json(
-      { message: "Email send Successfully" },
+      { message: "Thank you for contacting me " },
       { status: 200 }
     );
   } catch (err: any) {

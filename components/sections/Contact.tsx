@@ -4,6 +4,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Send, Mail, MapPin } from "lucide-react";
+import { toast } from "sonner";
 
 const initialFormState = {
   name: "",
@@ -15,10 +16,6 @@ export function Contact() {
   const [formData, setFormData] = useState(initialFormState);
  
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [statusMessage, setStatusMessage] = useState<{
-    type: "success" | "error" | "idle";
-    text: string;
-  }>({ type: "idle", text: "" });
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -32,15 +29,11 @@ export function Contact() {
 
     const { name, email, message } = formData;
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setStatusMessage({
-        type: "error",
-        text: "Please fill in all fields before sending your message.",
-      });
+      toast.error("Please fill in all fields before sending your message.")
       return;
     }
 
     setIsSubmitting(true);
-    setStatusMessage({ type: "idle", text: "" });
 
     try {
       const response = await fetch("/api/send-email", {
@@ -57,15 +50,12 @@ export function Contact() {
         throw new Error(data?.error || data?.message || "Something went wrong.");
       }
 
-      setStatusMessage({
-        type: "success",
-        text: data?.message || "Your message has been sent successfully.",
-      });
+      toast.success(data?.message)
       setFormData(initialFormState);
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "There was a problem sending your message.";
-      setStatusMessage({ type: "error", text: message });
+      toast.error(message)
     } finally {
       setIsSubmitting(false);
     }
@@ -187,17 +177,6 @@ export function Contact() {
                   className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300 resize-none"
                 />
               </div>
-
-              {statusMessage.text ? (
-                <p
-                  aria-live="polite"
-                  className={`text-sm ${
-                    statusMessage.type === "success" ? "text-emerald-400" : "text-red-400"
-                  }`}
-                >
-                  {statusMessage.text}
-                </p>
-              ) : null}
 
               <Button
                 type="submit"
